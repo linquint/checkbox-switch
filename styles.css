@@ -1,0 +1,33 @@
+:root {
+  --width: 64px;
+  --height: 32px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+input[type=checkbox] {
+  appearance: none;
+  background-color: #007bff;
+  width: var(--width);
+  height: var(--height);
+  border-radius: calc(var(--height) / 2);
+  cursor: pointer;
+}
+input::before {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: white;
+  content: "";
+  position: relative;
+  top: 0.5em;
+  left: 0.5em;
+  width: calc(var(--height) - 1em);
+  height: calc(var(--height) - 1em);
+  transition: transform .2s;
+}
+input:checked::before {
+  transform: translateX(calc(var(--width) - var(--height)));
+}
